@@ -1,0 +1,66 @@
+Q1. What is Flask Framework? What are the advantages of Flask Framework?
+Ans--> Flask is a lightweight and open-source web application framework for Python. It is designed to be flexible, scalable, and easy to use, making it a popular choice for building web applications and APIs.
+
+Some of the advantages of using Flask Framework include:
+
+1.Lightweight: Flask is a lightweight framework that is easy to use and doesn't have many dependencies, making it ideal for smaller applications.
+
+2.Flexibility: Flask is highly flexible, allowing developers to customize it to their needs. It doesn't impose a strict structure, allowing developers to use the tools and libraries they prefer.
+
+3.Easy to learn: Flask is easy to learn and understand, making it a popular choice for beginners. Its simplicity also makes it easy to debug and maintain.
+
+4.Large community: Flask has a large and active community, with a lot of resources and documentation available online. This makes it easy to find help when needed.
+
+5.Integration: Flask can be easily integrated with other tools and libraries, making it ideal for building complex applications.
+
+6.Scalability: Flask is highly scalable, allowing developers to build applications that can handle high traffic and large amounts of data.
+
+Overall, Flask is a great choice for building web applications and APIs, especially for smaller projects or those that require a high degree of customization. Its flexibility and ease of use make it a popular choice among developers.
+
+Q3. What is App routing in Flask? Why do we use app routes?
+Ans--> In Flask, app routing refers to the process of mapping URLs or web addresses to specific Python functions, which are known as view functions. App routing is used to define the endpoints or URLs that a user can access to interact with a web application.
+
+In other words, app routing defines the rules or patterns for how Flask will respond to different URLs requested by the user. For example, you can define a route that maps to a login page, another route that maps to a user profile page, and so on.
+
+We use app routes in Flask for several reasons:
+
+1.Easy navigation: By defining app routes, we can provide a clear structure and organization to our web application, making it easy for users to navigate and access the different parts of the application.
+
+2.Separation of concerns: By defining app routes, we can separate the logic of our application into smaller, more manageable functions. This allows us to build more complex applications while keeping the code organized and maintainable.
+
+3.Dynamic content: App routes allow us to generate dynamic content based on user input or other factors. For example, we can define a route that takes a user ID as input and generates a personalized user profile page.
+
+4.RESTful APIs: App routes are often used to define RESTful APIs, which allow external systems to interact with our web application through a standard set of URLs and HTTP methods.
+
+In summary, app routing is an essential part of building web applications in Flask, as it allows us to define the URLs and endpoints that our application will respond to, and provide users with an organized and easy-to-use interface.
+
+Q5. What function is used in Flask for URL Building? Write a Python code to demonstrate the working of the url_for() function.
+Ans--> The url_for() function in Flask is used for URL building. It takes the name of a view function as its first argument and returns the URL corresponding to that function.
+
+Here is an example Python code that demonstrates the working of the url_for() function:
+
+from flask import Flask, url_for
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Hello, World!'
+
+@app.route('/user/<username>')
+def profile(username):
+    return f'Hello, {username}!'
+
+with app.test_request_context():
+    print(url_for('index'))  # Output: '/'
+    print(url_for('profile', username='John'))  # Output: '/user/John'
+
+In this example, we have defined two view functions: index() and profile(), which correspond to the URLs '/' and '/user/<username>', respectively. We then use the url_for() function to generate URLs for these view functions.
+
+In the with app.test_request_context() block, we create a test request context to simulate a request to our Flask application. We then use the url_for() function to generate URLs for our view functions, passing the function name as the first argument and any additional arguments as keyword arguments.
+
+In the first print() statement, we pass 'index' as the function name, which corresponds to the index() function we defined earlier. The url_for() function returns '/', which is the URL for the index() function.
+
+In the second print() statement, we pass 'profile' as the function name and 'John' as the value for the username parameter. The url_for() function returns '/user/John', which is the URL for the profile() function with the username parameter set to 'John'.
+
+Overall, the url_for() function is a powerful tool for generating URLs in Flask applications, especially when used in combination with view functions and dynamic routing.
